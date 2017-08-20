@@ -32,4 +32,17 @@ public class Creation : MonoBehaviour {
             Destroy(newSfere, 10f);
         }
     }
+
+    void OnMouseDown()
+    {
+        if (Input.GetKey("mouse 0"))
+        {
+            Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+            int inkrement = (int)(4f / rb.mass);
+            ScoreManager.score += inkrement;
+
+            print("Box Clicked! ");
+            Destroy(gameObject);
+        }
+    }
 }

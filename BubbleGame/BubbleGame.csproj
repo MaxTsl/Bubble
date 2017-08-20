@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Assets\Buble.cs" />
     <Compile Include="Assets\Creation.cs" />
+    <Compile Include="Assets\ScoreManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

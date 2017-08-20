@@ -17,9 +17,8 @@ public class Buble : MonoBehaviour {
         //пытаемся разнообразить шарики
         float skale = Random.Range(0.2f, 1.2f);
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
-        rb.gravityScale = 1;
         rb.AddForce(new Vector2(0, Random.Range(1.0f, 7.0f)));
-
+        rb.mass = rb.mass * skale;
         gameObject.transform.localScale = new Vector3(skale, skale, 0);
         gameObject.transform.Rotate(new Vector3(skale, skale, 0));
     }
@@ -27,5 +26,18 @@ public class Buble : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.Rotate(new Vector3(0, 0, sign * rotation));
+    }
+
+    void OnMouseDown()
+    {
+        if (Input.GetKey("mouse 0"))
+        {
+            Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+            int inkrement = (int)(2 / rb.mass);
+            ScoreManager.score += inkrement;
+
+            print("Box Clicked! ");
+            Destroy(gameObject);
+        }
     }
 }
